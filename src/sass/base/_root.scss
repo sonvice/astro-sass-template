@@ -1,0 +1,38 @@
+@use "../abstracts" as *;
+$enable-media-query-dark-mode: false;
+:root {
+  // Fuentes
+  --font-family-base: #{$font-family-base};
+  --font-family-accent: #{$font-family-accent};
+
+  // Pesos de fuente
+  --fw-default: #{$font-weight-default};
+  --fw-semi-bold: #{$font-weight-semi-bold};
+  --fw-bold: #{$font-weight-bold};
+
+  // Generar variables CSS para el tema claro
+  @each $color, $shade-map in $light {
+    @each $shade, $value in $shade-map {
+      --#{$color}-#{$shade}: #{$value};
+    }
+  }
+
+  // Generar variables CSS para espacios
+  @include generate-css-variables($spaces, "");
+  // Generar variables CSS para tamaños de texto
+  @include generate-css-variables($text-sizes, "");
+  // Generar variables CSS para bordes redondeados
+  @include generate-css-variables($radius, "");
+
+  // Tema oscuro con preferencia de color
+  @if $enable-media-query-dark-mode {
+    @media (prefers-color-scheme: dark) {
+      // Generar variables CSS para el tema oscuro
+      @each $color, $shade-map in $dark {
+        @each $shade, $value in $shade-map {
+          --#{$color}-#{$shade}: #{$value};
+        }
+      }
+    }
+  }
+}

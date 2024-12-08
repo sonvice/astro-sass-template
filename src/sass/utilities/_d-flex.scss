@@ -1,0 +1,7 @@
+.d-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gutter, var(--space-s));
+    justify-content: var(--horizontal-alignment, flex-start);
+    align-items: var(--vertical-alignment, center);
+  }

@@ -1,0 +1,8 @@
+@use '../abstracts/' as size;
+
+@each $class-name, $value in size.$text-sizes {
+    //Text sizes
+    .#{$class-name} {
+      font-size: $value;
+    }
+  }

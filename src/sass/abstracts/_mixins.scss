@@ -1,0 +1,55 @@
+@use "sass:map";
+
+$breakpointsMin: (
+  sm: 40em,
+  //640px
+  md: 48em,
+  //768px
+  lg: 64em,
+  //1024px
+  xl: 90em,
+  //1440px
+);
+
+$breakpointsMax: (
+  sm: 39.99875em,
+  //639.98px
+  md: 47.99875em,
+  //767.98px
+  lg: 63.99875em,
+  //1023.98px
+  xl: 89.99875em,
+  //1439.98px
+);
+
+// Mixin para generar media queries y recibe como argumento sm, md etc.
+@mixin breakpoint($breakpoint) {
+  $breakpoint-value: map.get($breakpointsMin, $breakpoint);
+  @if $breakpoint-value != null {
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  } @else{
+    @error "The breakpoint #{$breakpoint} is not defined in $breakpointsMin.";
+  }
+}
+
+@mixin breakpoint-down($breakpoint) {
+  $breakpoint-value: map.get($breakpointsMax, $breakpoint);
+  @if $breakpoint-value != null {
+    @media (max-width: $breakpoint-value) {
+      @content;
+    }
+  }@else {
+    @error "The breakpoint #{$breakpoint} is not defined in $breakpointsMax.";
+  }
+}
+
+  // Mixins para Agregar Nuevos Tokens
+  @mixin generate-css-variables($map, $prefix: "") {
+    @each $key, $value in $map {
+      --#{$prefix}#{$key}: #{$value};
+    }
+  }
+    
+
