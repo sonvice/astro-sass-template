@@ -6,7 +6,7 @@
       background-color: var(--#{$color}-#{$shade});
     }
 
-    .text-#{$color}-#{$shade} {
+    .color-#{$color}-#{$shade} {
       color: var(--#{$color}-#{$shade});
     }
   }

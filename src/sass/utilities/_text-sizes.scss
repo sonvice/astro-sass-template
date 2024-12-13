@@ -1,8 +1,12 @@
-@use '../abstracts/' as size;
+@use '../abstracts/' as *;
 
-@each $class-name, $value in size.$text-sizes {
-    //Text sizes
-    .#{$class-name} {
-      font-size: $value;
-    }
+// Iteramos sobre el mapa $text-sizes
+@each $class-name, $value in $text-sizes {
+  // Generamos dinámicamente el nombre de la variable CSS
+  $variable-name: var(--#{$class-name});
+
+  // Definimos las clases utilizando las variables CSS
+  .text-#{$class-name} {
+    font-size: #{$variable-name};
   }
+}

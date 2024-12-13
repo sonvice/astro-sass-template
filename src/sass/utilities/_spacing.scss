@@ -2,57 +2,60 @@
 
 // Generación de clases de utilidad para márgenes y padding
 @each $class-name, $value in $spaces {
+  // Usamos el string `$class-name` directamente como el nombre de la variable CSS
+  $variable-name: var(--#{$class-name});
+
   // Margin
   .m-#{$class-name} {
-    margin: $value;
+    margin: #{$variable-name};
   }
   .mt-#{$class-name} {
-    margin-top: $value;
+    margin-top: #{$variable-name};
   }
   .mr-#{$class-name} {
-    margin-right: $value;
+    margin-right: #{$variable-name};
   }
   .mb-#{$class-name} {
-    margin-bottom: $value;
+    margin-bottom: #{$variable-name};
   }
   .ml-#{$class-name} {
-    margin-left: $value;
+    margin-left: #{$variable-name};
   }
 
   // Margin en bloque
   .my-#{$class-name} {
-    margin-block: $value;
+    margin-block: #{$variable-name};
   }
 
   // Margin en línea
   .mx-#{$class-name} {
-    margin-inline: $value;
+    margin-inline: #{$variable-name};
   }
 
   // Padding
   .p-#{$class-name} {
-    padding: $value;
+    padding: #{$variable-name};
   }
   .pt-#{$class-name} {
-    padding-top: $value;
+    padding-top: #{$variable-name};
   }
   .pr-#{$class-name} {
-    padding-right: $value;
+    padding-right: #{$variable-name};
   }
   .pb-#{$class-name} {
-    padding-bottom: $value;
+    padding-bottom: #{$variable-name};
   }
   .pl-#{$class-name} {
-    padding-left: $value;
+    padding-left: #{$variable-name};
   }
 
   // Padding en bloque
   .py-#{$class-name} {
-    padding-block: $value;
+    padding-block: #{$variable-name};
   }
 
   // Padding en línea
   .px-#{$class-name} {
-    padding-inline: $value;
+    padding-inline: #{$variable-name};
   }
 }

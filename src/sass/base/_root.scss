@@ -6,9 +6,9 @@ $enable-media-query-dark-mode: false;
   --font-family-accent: #{$font-family-accent};
 
   // Pesos de fuente
-  --fw-default: #{$font-weight-default};
-  --fw-semi-bold: #{$font-weight-semi-bold};
-  --fw-bold: #{$font-weight-bold};
+  --font-weight-default: #{$font-weight-default};
+  --font-weight-semi-bold: #{$font-weight-semi-bold};
+  --font-weight-bold: #{$font-weight-bold};
 
   // Generar variables CSS para el tema claro
   @each $color, $shade-map in $light {

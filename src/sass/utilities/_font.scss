@@ -1,12 +1,12 @@
 @use "../abstracts" as *;
 
-// Generación de clases de utilidad para tipografía
+// Generación de clases de utilidad para tipografía usando variables CSS
 @each $ff-name, $ff-value in (
   "base": $font-family-base,
   "accent": $font-family-accent
 ) {
   .font-#{$ff-name} {
-    font-family: #{$ff-value};
+    font-family: var(--font-family-#{$ff-name});
   }
 }
 
@@ -16,7 +16,7 @@
   "bold": $font-weight-bold
 ) {
   .fw-#{$fw-name} {
-    font-weight: #{$fw-value};
+    font-weight: var(--font-weight-#{$fw-name});
   }
 }
 
