@@ -1,22 +1,14 @@
-@use "../abstracts" as *;
+@use "sass:string" as str;
+@use "../abstracts/map-tokens" as MapTokens;
 
-// Generación de clases de utilidad para tipografía usando variables CSS
-@each $ff-name, $ff-value in (
-  "base": $font-family-base,
-  "accent": $font-family-accent
-) {
-  .font-#{$ff-name} {
-    font-family: var(--font-family-#{$ff-name});
+@each $ff-key, $ff-value in MapTokens.$map-fonts {
+  .#{$ff-key} {
+    font-family: #{$ff-value};
   }
 }
 
-@each $fw-name, $fw-value in (
-  "default": $font-weight-default,
-  "semi-bold": $font-weight-semi-bold,
-  "bold": $font-weight-bold
-) {
-  .fw-#{$fw-name} {
-    font-weight: var(--font-weight-#{$fw-name});
+@each $fw-key, $fw-value in MapTokens.$map-font-weights {
+  .text-#{$fw-key} {
+    font-variation-settings: 'wght' #{$fw-value};
   }
 }
-

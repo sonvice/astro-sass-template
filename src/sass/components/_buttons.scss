@@ -6,7 +6,7 @@
   cursor: pointer;
   text-decoration: none;
   line-height: 1;
-  font-family: var(--ff-family-base);
+  font-family: var(--ff-base);
   font-size: var(--size-0);
   font-weight:var(--fw-default);
   transition: 275ms ease;
@@ -14,7 +14,7 @@
 
   &[data-type="primary"] {
     background-color: var(--primary-500);
-    color: var(--neutral-100);
+    color: var(--neutral-300);
 
     &:is(:hover, :focus) {
       background-color: var(--primary-600);

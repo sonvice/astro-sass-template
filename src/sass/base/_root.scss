@@ -1,38 +1,20 @@
-@use "../abstracts" as *;
-$enable-media-query-dark-mode: false;
+@use "../abstracts/map-tokens" as MapTokens;
+@use "../abstracts/alias-tokens" as AliasTokens;
+@use "../abstracts/mixins" as Mixins; 
+
+$enable-dark-theme: false; // Cambia esto a false si no quieres activar el modo oscuro
+
 :root {
-  // Fuentes
-  --font-family-base: #{$font-family-base};
-  --font-family-accent: #{$font-family-accent};
+  //@include Mixins.generate-css-variables(AliasTokens.$alias, "alias-");
+  @include Mixins.generate-css-variables(MapTokens.$map-colors-light, "");
+  @include Mixins.generate-css-variables(MapTokens.$map-spacing, "");
+  @include Mixins.generate-css-variables(MapTokens.$map-sizes, "");
+  @include Mixins.generate-css-variables(MapTokens.$map-fonts, "");
+}
 
-  // Pesos de fuente
-  --font-weight-default: #{$font-weight-default};
-  --font-weight-semi-bold: #{$font-weight-semi-bold};
-  --font-weight-bold: #{$font-weight-bold};
-
-  // Generar variables CSS para el tema claro
-  @each $color, $shade-map in $light {
-    @each $shade, $value in $shade-map {
-      --#{$color}-#{$shade}: #{$value};
-    }
-  }
-
-  // Generar variables CSS para espacios
-  @include generate-css-variables($spaces, "");
-  // Generar variables CSS para tamaños de texto
-  @include generate-css-variables($text-sizes, "");
-  // Generar variables CSS para bordes redondeados
-  @include generate-css-variables($radius, "");
-
-  // Tema oscuro con preferencia de color
-  @if $enable-media-query-dark-mode {
-    @media (prefers-color-scheme: dark) {
-      // Generar variables CSS para el tema oscuro
-      @each $color, $shade-map in $dark {
-        @each $shade, $value in $shade-map {
-          --#{$color}-#{$shade}: #{$value};
-        }
-      }
-    }
+// Solo generar las variables para el modo oscuro si está habilitado
+[data-theme="dark"] {
+  @if $enable-dark-theme {
+    @include Mixins.generate-css-variables(MapTokens.$map-colors-dark, "");
   }
 }

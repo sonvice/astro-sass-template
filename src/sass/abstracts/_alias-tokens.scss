@@ -1,0 +1,16 @@
+@use "sass:map";
+@use "map-tokens" as Maptokens;
+
+// Alias general
+$alias: (
+  "font-family-base": map.get(Maptokens.$map-fonts, "ff-base"),
+  "font-weight-default": map.get(Maptokens.$map-font-weights, "default"),
+  "font-weight-bold": map.get(Maptokens.$map-font-weights, "bold"),
+  "bg-primary": map.get(map.get(Maptokens.$map-colors-light, "primary"), "500"),
+  "text-secondary": map.get(map.get(Maptokens.$map-colors-light, "neutral"), "300"),
+  "space-m": map.get(Maptokens.$map-spacing, "space-m"),
+  "radius-lg": map.get(Maptokens.$map-radius, "lg"),
+  "size-0": map.get(Maptokens.$map-sizes, "size-0")
+);
+
+

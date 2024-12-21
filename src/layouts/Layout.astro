@@ -3,7 +3,7 @@ import "../sass/style.scss";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -13,10 +13,45 @@ import "../sass/style.scss";
 	</head>
 	<body class="bg-primary-100 pt-space-xl">
 		<div class="container">
-
-			
+			<button id="theme-toggle">Toggle Theme</button>
 			<slot />
 		</div>
 	</body>
 </html>
 
+<script>
+
+// Función para obtener el tema desde localStorage
+const getStoredTheme = (): 'light' | 'dark' | null => {
+  return localStorage.getItem('theme') as 'light' | 'dark' | null;
+};
+
+// Función para establecer el tema y guardarlo en localStorage
+const setTheme = (theme: 'light' | 'dark'): void => {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme); 
+};
+
+// Detectar la preferencia del sistema (si no hay un tema guardado en localStorage)
+const userPreferredTheme: 'light' | 'dark' = getStoredTheme() || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+setTheme(userPreferredTheme);
+
+// Detectar cambios en la preferencia del sistema y actualizarlos en localStorage
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  const newTheme = e.matches ? 'dark' : 'light';
+  setTheme(newTheme);
+});
+
+// Alternar entre los temas si el usuario lo desea
+const toggleTheme = () => {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  setTheme(newTheme);
+};
+
+document.querySelector("#theme-toggle")?.addEventListener("click", toggleTheme);
+
+
+
+</script>

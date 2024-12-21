@@ -1,13 +1,13 @@
-@use "../abstracts" as *;
+@use "../abstracts/map-tokens" as MapTokens;
 
-@each $color, $shade-map in $light {
+@each $seed-primary, $shade-map in MapTokens.$map-colors-light {
   @each $shade, $value in $shade-map {
-    .bg-#{$color}-#{$shade} {
-      background-color: var(--#{$color}-#{$shade});
+    .bg-#{$seed-primary}-#{$shade} {
+      background-color: var(--#{$seed-primary}-#{$shade});
     }
 
-    .color-#{$color}-#{$shade} {
-      color: var(--#{$color}-#{$shade});
+    .text-#{$seed-primary}-#{$shade} {
+      color: var(--#{$seed-primary}-#{$shade});
     }
   }
 }

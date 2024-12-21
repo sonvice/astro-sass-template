@@ -4,162 +4,89 @@ Plantilla con de Astro v5, con sass y estructura de
 carpetas escalables para manejar de mejor manera el css
 en proyectos web.
 
-# Clases de Utilidad Generadas
+# Starter Template
 
-Este documento describe las clases de utilidad generadas en los archivos `_font.scss`, `_spacing.scss`, `_text-sizes.scss`, y `colors`. Estas clases te permiten aplicar estilos comunes directamente en tu HTML sin necesidad de escribir CSS adicional.
+Este proyecto es un **Starter Template** que proporciona una base sólida para iniciar proyectos web. El enfoque principal está en la implementación de un sistema de diseño escalable utilizando **clases de utilidad** basadas en **tokens de diseño**. Esto permite una personalización sencilla y coherente para cualquier proyecto.
 
----
+## Características
 
-## **1. Tipografía (`_font.scss`):**
-Clases relacionadas con familias tipográficas y pesos de fuente.
+1. **Clases de utilidad basadas en tokens**:
+   - Los estilos están diseñados utilizando tokens de diseño centralizados (colores, tipografías, espacios, tamaños, etc.).
+   - Utiliza `@use` de Sass para manejar mapas de tokens y generar clases de utilidad dinámicas.
 
-### **Familias Tipográficas**
-```css
-.font-base {
-  font-family: var(--font-family-base);
-}
+2. **Alias de tokens**:
+   - Se han definido alias que actúan como una capa semántica para mapear los tokens a conceptos específicos de diseño.
 
-.font-accent {
-  font-family: var(--font-family-accent);
-}
+3. **Modularidad y escalabilidad**:
+   - Separación de estilos en carpetas bien organizadas.
+   - Compatible con diferentes temas (light, dark, etc.).
+
+4. **Fácil personalización**:
+   - Solo necesitas modificar los tokens base o alias para actualizar los estilos globales del proyecto.
+
+5. **Listo para producción**:
+   - Configuración optimizada para ser integrada fácilmente en proyectos.
+
+## Estructura del Proyecto
+
+```
+├── src/
+│   ├── styles/
+│   │   ├── abstracts/        # Tokens y variables base
+│   │   ├── base/             # Estilos globales como `_root.scss`
+│   │   ├── components/       # Estilos específicos de componentes
+│   │   └── utilities/        # Clases de utilidad generadas dinámicamente
+│   └── ...                   # Otros archivos del proyecto
+├── public/
+├── package.json
+└── ...
 ```
 
-### **Pesos de Fuente**
-```css
-.fw-default {
-  font-weight: var(--font-weight-default);
-}
+## Uso del Template
 
-.fw-semi-bold {
-  font-weight: var(--font-weight-semi-bold);
-}
+### Requisitos Previos
+- [Node.js](https://nodejs.org/) instalado en tu sistema.
+- Administrador de paquetes como **npm** o **yarn**.
 
-.fw-bold {
-  font-weight: var(--font-weight-bold);
-}
-```
+### Instalación
+1. Clona este repositorio:
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+   ```
 
----
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
 
-## **2. Espaciado (`_spacing.scss`):**
-Clases generadas a partir del mapa `$spaces`. Estas clases permiten agregar márgenes y padding con valores predefinidos.
+3. Ejecuta el proyecto en modo desarrollo:
+   ```bash
+   npm run dev
+   ```
 
-### **Clases de Márgenes**
-```css
-.m-[size] {
-  margin: var(--space-[size]);
-}
+4. Compila para producción:
+   ```bash
+   npm run build
+   ```
 
-.mt-[size] {
-  margin-top: var(--space-[size]);
-}
+### Cómo utilizar los tokens y las clases de utilidad
+1. Los tokens están definidos en los archivos dentro de `src/styles/abstracts/`.
+2. Las clases de utilidad generadas automáticamente pueden ser utilizadas directamente en el HTML o como mixins en los estilos personalizados.
+3. Puedes añadir nuevos tokens o modificar los existentes en `_root.scss` y las clases se actualizarán automáticamente.
 
-.mr-[size] {
-  margin-right: var(--space-[size]);
-}
-
-.mb-[size] {
-  margin-bottom: var(--space-[size]);
-}
-
-.ml-[size] {
-  margin-left: var(--space-[size]);
-}
-
-.mx-[size] {
-  margin-left: var(--space-[size]);
-  margin-right: var(--space-[size]);
-}
-
-.my-[size] {
-  margin-top: var(--space-[size]);
-  margin-bottom: var(--space-[size]);
-}
-```
-
-### **Clases de Padding**
-```css
-.p-[size] {
-  padding: var(--space-[size]);
-}
-
-.pt-[size] {
-  padding-top: var(--space-[size]);
-}
-
-.pr-[size] {
-  padding-right: var(--space-[size]);
-}
-
-.pb-[size] {
-  padding-bottom: var(--space-[size]);
-}
-
-.pl-[size] {
-  padding-left: var(--space-[size]);
-}
-
-.px-[size] {
-  padding-left: var(--space-[size]);
-  padding-right: var(--space-[size]);
-}
-
-.py-[size] {
-  padding-top: var(--space-[size]);
-  padding-bottom: var(--space-[size]);
-}
-```
-
----
-
-## **3. Tamaños Tipográficos (`_text-sizes.scss`):**
-Clases generadas a partir del mapa `$text-sizes` para aplicar tamaños predefinidos de fuente.
-
-### **Clases de Tamaño de Texto**
-```css
-.text-[size] {
-  font-size: var(--text-size-[size]);
-}
-```
-Ejemplo:
+### Ejemplo de clases de utilidad
 ```html
-<p class="text-size-0">Texto con tamaño 0</p>
-<p class="text-size-1">Texto con tamaño 1</p>
-```
-
----
-
-## **4. Colores (`colors`):**
-Clases para aplicar colores a fondo y texto generadas a partir del mapa `$light`.
-
-### **Colores de Fondo**
-```css
-.bg-[color]-[shade] {
-  background-color: var(--[color]-[shade]);
-}
-```
-
-### **Colores de Texto**
-```css
-.color-[color]-[shade] {
-  color: var(--[color]-[shade]);
-}
-```
-
-Ejemplo:
-```html
-<div class="bg-primary-100 color-primary-700">
-  Fondo con color primario 100 y texto primario 700
+<div class="bg-primary-500 radius-lg p-space-m">
+  Contenido con estilos basados en tokens
 </div>
 ```
+- **`bg-primary-500`**: Color de fondo principal.
+- **`radius-lg`**: Bordes redondeados grandes.
+- **`p-space-m`**: Espaciado de padding mediano.
 
----
+## Licencia
+Este proyecto está bajo la [Licencia MIT](LICENSE).
 
-## **Notas Adicionales**
-- **Nomenclatura Dinámica:** Reemplaza `[size]`, `[color]`, y `[shade]` con los valores definidos en los mapas de tu configuración.
-- **Modo Oscuro:** Si está habilitado, los colores para el tema oscuro serán gestionados automáticamente mediante las variables CSS dentro de una media query.
-
----
 
 
 ## 🧞 Commands

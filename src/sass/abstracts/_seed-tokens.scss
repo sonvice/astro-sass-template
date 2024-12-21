@@ -1,0 +1,97 @@
+//https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors
+
+$seed-neutral-light: (
+  "000": hsl(0, 0%, 100%),
+  "100": hsl(0, 0%, 77%),
+  "200": hsl(255, 7%, 11%),
+  "300": hsl(0, 0%, 1%),
+  "1000": hsl(0, 0%, 0%)
+);
+
+$seed-neutral-dark: (
+  "000": hsl(0, 0%, 20%),
+  "100": hsl(0, 0%, 33%),
+  "200": hsl(0, 0%, 45%),
+  "300": hsl(0, 0%, 50%),
+  "1000": hsl(0, 0%, 95%)
+);
+
+$seed-primary-light: (
+"50": hsl(48, 76%, 93%),
+"100": hsl(48, 75%, 83%),
+"200": hsl(48, 76%, 72%),
+"300": hsl(48, 76%, 61%),
+"400": hsl(47, 77%, 54%),
+"500": hsl(46, 78%, 49%),
+"600": hsl(43, 83%, 48%),//P
+"700": hsl(39, 87%, 47%),
+"800": hsl(35, 91%, 46%),
+"900": hsl(28, 96%, 44%),
+);
+
+$seed-primary-dark: (
+  "50": hsl(48, 76%, 93%),
+  "100": hsl(48, 75%, 83%),
+  "200": hsl(48, 76%, 72%),
+  "300": hsl(48, 76%, 61%),
+  "400": hsl(47, 77%, 54%),
+  "500": hsl(46, 78%, 49%),
+  "600": hsl(43, 83%, 48%),//P
+  "700": hsl(39, 87%, 47%),
+  "800": hsl(35, 91%, 46%),
+  "900": hsl(28, 96%, 44%),
+);
+
+$seed-secondary-light: (
+  "500": hsl(0, 0%, 0%)
+);
+
+$seed-secondary-dark: (
+  "500": hsl(0, 0%, 95%)
+);
+
+// Tipografía base
+$seed-font: (
+  "ff-base": "Montserrat Variable",
+  "ff-accent": "Montserrat Variable",
+  "fw-default": 400,
+  "fw-semi-bold": 500,
+  "fw-bold": 700
+);
+
+// Espaciado base
+$seed-spacing: (
+"space-auto": 0 auto,
+"space-0": 0,
+"space-3xs": clamp(0.25rem, 0.2333rem + 0.0833vw, 0.3125rem),
+"space-2xs": clamp(0.5rem, 0.4833rem + 0.0833vw, 0.5625rem),
+"space-xs": clamp(0.75rem, 0.7167rem + 0.1667vw, 0.875rem),
+"space-s": clamp(1rem, 0.9667rem + 0.1667vw, 1.125rem),
+"space-m": clamp(1.5rem, 1.45rem + 0.25vw, 1.6875rem),
+"space-l": clamp(2rem, 1.9333rem + 0.3333vw, 2.25rem),
+"space-xl": clamp(3rem, 2.9rem + 0.5vw, 3.375rem),
+"space-2xl": clamp(4rem, 3.8667rem + 0.6667vw, 4.5rem),
+"space-3xl": clamp(6rem, 5.8rem + 1vw, 6.75rem),
+// Pairs
+"space-s-l": clamp(1rem, 0.6667rem + 1.6667vw, 2.25rem),
+);
+
+// Tamaños de fuente
+$seed-sizes: (
+ "size--2": clamp(0.6331rem, 0.7108rem + -0.0818vw, 0.6944rem),
+  "size--1": clamp(0.8333rem, 0.8305rem + 0.0142vw, 0.844rem),
+  "size-0": clamp(1rem, 0.9667rem + 0.1667vw, 1.125rem),
+  "size-1": clamp(1.2rem, 1.1201rem + 0.3995vw, 1.4996rem),
+  "size-2": clamp(1.44rem, 1.2909rem + 0.7453vw, 1.999rem),
+  "size-3": clamp(1.728rem, 1.4782rem + 1.2489vw, 2.6647rem),
+  "size-4": clamp(2.0736rem, 1.6794rem + 1.9712vw, 3.552rem),
+  "size-5": clamp(2.4883rem, 1.8893rem + 2.9953vw, 4.7348rem),
+);
+
+// Bordes redondeados
+$seed-radius: (
+  "sm": 4px,
+  "md": 8px,
+  "lg": 12px,
+  "xl": 16px
+);

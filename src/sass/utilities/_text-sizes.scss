@@ -1,7 +1,7 @@
-@use '../abstracts/' as *;
+@use "../abstracts/map-tokens" as MapTokens;
 
 // Iteramos sobre el mapa $text-sizes
-@each $class-name, $value in $text-sizes {
+@each $class-name, $value in MapTokens.$map-sizes {
   // Generamos dinámicamente el nombre de la variable CSS
   $variable-name: var(--#{$class-name});
 

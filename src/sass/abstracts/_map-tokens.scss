@@ -1,0 +1,33 @@
+// Este archivo transforma los tokens base en mapas estructurados que pueden ser utilizados por alias y temas.
+@use "sass:map";
+@use "sass:color";
+@use "seed-tokens" as seed;
+
+// Colores derivados para modo claro
+$map-colors-light: (
+  "neutral": seed.$seed-neutral-light,
+  "primary": seed.$seed-primary-light,
+  "secondary": seed.$seed-secondary-light,
+);
+
+// Colores derivados para modo oscuro
+$map-colors-dark: (
+  "neutral": seed.$seed-neutral-dark,
+  "primary": seed.$seed-primary-dark,
+  "secondary": seed.$seed-secondary-dark,
+);
+
+$map-fonts: (
+  "ff-base": map.get(seed.$seed-font, "ff-base"),
+  "ff-accent": map.get(seed.$seed-font, "ff-accent")
+);
+
+$map-font-weights: (
+  "default": map.get(seed.$seed-font, "fw-default"),
+  "semi-bold": map.get(seed.$seed-font, "fw-semi-bold"),
+  "bold": map.get(seed.$seed-font, "fw-bold"),
+);
+
+$map-spacing: seed.$seed-spacing;
+$map-sizes: seed.$seed-sizes;
+$map-radius: seed.$seed-radius;

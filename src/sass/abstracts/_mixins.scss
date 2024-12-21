@@ -1,4 +1,5 @@
 @use "sass:map";
+@use "sass:meta";
 
 $breakpointsMin: (
   sm: 40em,
@@ -48,8 +49,30 @@ $breakpointsMax: (
   // Mixins para Agregar Nuevos Tokens
   @mixin generate-css-variables($map, $prefix: "") {
     @each $key, $value in $map {
-      --#{$prefix}#{$key}: #{$value};
+      @if meta.type-of($value) == "map" {
+        // Llamada recursiva si el valor es un mapa anidado
+        @include generate-css-variables($value, $prefix + $key + "-");
+      } @else {
+        // Genera la variable si es un valor plano
+        --#{$prefix}#{$key}: #{$value};
+      }
     }
   }
+  
     
 
+// Genera múltiples tonos derivados del color base.
+@function color-scale($color, $steps: 10, $darken: true) {
+  $colors: ();
+
+  @for $i from 1 through $steps {
+    @if $darken {
+      $shade: darken($color, $i * 5%); // Oscurece en incrementos del 5%
+    } @else {
+      $shade: lighten($color, $i * 5%); // Aclara en incrementos del 5%
+    }
+
+    $colors: append($colors, $shade);
+  }
+  @return $colors;
+}

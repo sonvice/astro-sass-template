@@ -1,12 +1,15 @@
 @use "sass:math";
+@use "sass:color";
+@use "sass:list";
 
 @function px-to-rem($px, $base-font-size: 16px) {
-  // Establece el tamaño de fuente base en caso de que desees cambiarlo
   $rem-base: $base-font-size;
-
   // Calcula el valor en rem utilizando la relación 1px = 0.0625rem
   @return math.div($px, $rem-base) * 1rem;
 }
 
 // Ejemplo de uso de la función
 $text-size-in-rem: px-to-rem(16px);
+
+
+
