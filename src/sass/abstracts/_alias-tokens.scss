@@ -1,16 +1,19 @@
 @use "sass:map";
 @use "map-tokens" as Maptokens;
 
-// Alias general
-$alias: (
-  "font-family-base": map.get(Maptokens.$map-fonts, "ff-base"),
-  "font-weight-default": map.get(Maptokens.$map-font-weights, "default"),
-  "font-weight-bold": map.get(Maptokens.$map-font-weights, "bold"),
-  "bg-primary": map.get(map.get(Maptokens.$map-colors-light, "primary"), "500"),
-  "text-secondary": map.get(map.get(Maptokens.$map-colors-light, "neutral"), "300"),
-  "space-m": map.get(Maptokens.$map-spacing, "space-m"),
-  "radius-lg": map.get(Maptokens.$map-radius, "lg"),
-  "size-0": map.get(Maptokens.$map-sizes, "size-0")
+// Se convierten a variables css los nombres de las propiedades de los tokens
+$button: (
+  "button-font-size": map.get(Maptokens.$map-sizes, "size-0"),
+  "button-font-weight": map.get(Maptokens.$map-font-weights, "semi-bold"),
+  "button-radius": map.get(Maptokens.$map-radius, "full"),
+  "button-padding":0.7em 1.2em,
+  "button-gap":0.5em,
+  "button-bg":map.get(map.get(Maptokens.$map-colors-light, "primary"), "200"),
+  "button-color":map.get(map.get(Maptokens.$map-colors-light, "neutral"), "900"),
+  "button-hover-bg":map.get(map.get(Maptokens.$map-colors-light, "primary"), "100"),
+  "button-hover-color":map.get(map.get(Maptokens.$map-colors-light, "neutral"), "900"),
+  "button-border-width":2px,
+  "button-border-style":solid,
+  "button-border-color":map.get(map.get(Maptokens.$map-colors-light, "primary"), "200"),
 );
-
 

@@ -7,8 +7,8 @@ interface Props {
 }
 const { text,type,class:className,id } = Astro.props;
 ---
-<button id={id} class={`btn ${className ? className:''}`} data-type={type}>
+<a href="#" id={id} class={`btn ${className ? className:''}`} data-type={type}>
   <slot name="icon-left"/>
   {text}
   <slot name="icon-right"/>
-</button>
+</a>

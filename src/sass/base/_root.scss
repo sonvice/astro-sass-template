@@ -2,7 +2,7 @@
 @use "../abstracts/alias-tokens" as AliasTokens;
 @use "../abstracts/mixins" as Mixins; 
 
-$enable-dark-theme: false; // Cambia esto a false si no quieres activar el modo oscuro
+$enable-dark-theme: true; // Cambia esto a false si no quieres activar el modo oscuro
 
 :root {
   //@include Mixins.generate-css-variables(AliasTokens.$alias, "alias-");
