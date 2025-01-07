@@ -2,18 +2,26 @@
 @use "map-tokens" as Maptokens;
 
 // Se convierten a variables css los nombres de las propiedades de los tokens
+//Patrones de nombres (Mirar componente button)
+// 1. [Componente]: Define el propósito general (ejemplo: button, card, form, etc.).
+// 2. [Categoría]: Define el grupo o la característica estilística (ejemplo: color, border, spacing, etc.).
+// 3. [Propiedad]: Define la propiedad específica dentro de la categoría (ejemplo: bg, text, radius, etc.).
 $button: (
-  "button-font-size": map.get(Maptokens.$map-sizes, "size-0"),
-  "button-font-weight": map.get(Maptokens.$map-font-weights, "semi-bold"),
-  "button-radius": map.get(Maptokens.$map-radius, "full"),
-  "button-padding":0.7em 1.2em,
-  "button-gap":0.5em,
-  "button-bg":map.get(map.get(Maptokens.$map-colors-light, "primary"), "200"),
-  "button-color":map.get(map.get(Maptokens.$map-colors-light, "neutral"), "900"),
-  "button-hover-bg":map.get(map.get(Maptokens.$map-colors-light, "primary"), "100"),
-  "button-hover-color":map.get(map.get(Maptokens.$map-colors-light, "neutral"), "900"),
-  "button-border-width":2px,
-  "button-border-style":solid,
-  "button-border-color":map.get(map.get(Maptokens.$map-colors-light, "primary"), "200"),
+  "font-size": map.get(Maptokens.$map-sizes, "size-0"),           
+  "font-weight": map.get(Maptokens.$map-font-weights, "semi-bold"), 
+
+  "radius-border": map.get(Maptokens.$map-radius, "full"),       
+  "spacing-padding": 0.7em 1.2em,                              
+  "spacing-gap": 0.5em,                                        
+
+  "color-bg": map.get(map.get(Maptokens.$map-colors-light, "primary"), "200"), 
+  "color-text": map.get(map.get(Maptokens.$map-colors-light, "neutral"), "900"), 
+  "color-hover-bg": map.get(map.get(Maptokens.$map-colors-light, "primary"), "100"), 
+  "color-hover-text": map.get(map.get(Maptokens.$map-colors-light, "neutral"), "900"), 
+
+  "border-width": 2px,                                           
+  "border-style": solid,                                       
+  "border-color": map.get(map.get(Maptokens.$map-colors-light, "primary"), "200") 
 );
+
 

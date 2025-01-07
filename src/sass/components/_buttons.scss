@@ -4,18 +4,18 @@
 @use "../abstracts/mixins" as Mixins; 
 
 .btn {
-  @include Mixins.generate-css-variables(AliasTokens.$button, "");
+  @include Mixins.generate-css-variables(AliasTokens.$button, "button-");
   border: var(--button-border-width);
-  color: var(--button-color);
-  background-color: var(--button-bg);
+  color: var(--button-color-text);
+  background-color: var(--button-color-bg);
   display: inline-flex;
   align-items: center;
-  gap: var(--button-gap,0.5em);
-  padding: var(--button-padding,0.7em 1.2em);
+  gap: var(--button-spacing-gap,0.5em);
+  padding: var(--button-spacing-padding,0.7em 1.2em);
   border-width: var(--button-border-width);
   border-style: var(--button-border-style);
   border-color: var(--button-border-color);
-  border-radius: var(--button-radius);
+  border-radius: var(--button-radius-border);
   
   text-decoration: none;
   font-weight: var(--button-font-weight, 700);
@@ -32,8 +32,8 @@
   }
 
   &:hover {
-    background: var(--button-hover-bg);
-    color: var(--button-hover-color);
+    background: var(--button-color-hover-bg);
+    color: var(--button-color-hover-text);
   }
   
   &:focus {
@@ -51,17 +51,18 @@
   }
 
   &[data-type="primary"] {
-   --button-bg:var(--neutral-900);
-   --button-color:var(--neutral-50);
+   --button-color-bg:var(--neutral-900);
+   --button-color-text:var(--neutral-50);
    --button-border-color:var(--neutral-900);
-   --button-hover-bg:var(--neutral-800);
-   --button-hover-color:var(--neutral-50);
+   --button-color-hover-bg:var(--neutral-800);
+   --button-color-hover-text:var(--neutral-50);
   }
 
   &[data-type="ghost"] {
-    --button-bg:transparent;
+    --button-color-bg:transparent;
+    --button-color-text:var(--neutral-900);
     --button-border-color:currentColor;
-    --button-color:currentColor;
-    --button-hover-bg:var(--primary-50);
+    --button-color-hover-bg:var(--neutral-900);
+    --button-color-hover-text:var(--neutral-50);
   }
 }
