@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "sass:meta";
+@use "sass:string";
 
 $breakpointsMin: (
   sm: 40em,
@@ -61,18 +62,3 @@ $breakpointsMax: (
   
     
 
-// Genera múltiples tonos derivados del color base.
-@function color-scale($color, $steps: 10, $darken: true) {
-  $colors: ();
-
-  @for $i from 1 through $steps {
-    @if $darken {
-      $shade: darken($color, $i * 5%); // Oscurece en incrementos del 5%
-    } @else {
-      $shade: lighten($color, $i * 5%); // Aclara en incrementos del 5%
-    }
-
-    $colors: append($colors, $shade);
-  }
-  @return $colors;
-}
