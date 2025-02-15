@@ -1,10 +1,9 @@
 //https://piccalil.li/blog/how-i-build-a-button-component/
 @use "../abstracts" as *;
-@use "../abstracts/alias-tokens" as AliasTokens;
-@use "../abstracts/mixins" as Mixins; 
+
 
 .btn {
-  @include Mixins.generate-css-variables(AliasTokens.$button, "button-");
+  @include generate-css-variables($button, "button-");
   border: var(--button-border-width);
   color: var(--button-color-text);
   background-color: var(--button-color-bg);
