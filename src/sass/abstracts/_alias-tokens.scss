@@ -7,20 +7,22 @@
 //---Patrones de nombres (Mirar componente button)---//
 
 // 1. [Componente]: Define el propósito general (ejemplo: button, card, form, etc.).
-// 2. [Categoría]: Define el grupo o la característica estilística (ejemplo: color, border, spacing, etc.).
-// 3. [Propiedad]: Define la propiedad específica dentro de la categoría (ejemplo: bg, text, radius, etc.).
+// 2. [Propiedad]:  Define la característica específica que se está configurando 
+//    (ejemplo: tamaño, color, espaciado, borde, etc.).
+// 3. [Estado]: Define el estado o variación del componente cuando cambia su interacción o contexto 
+//    (ejemplo: default, hover, active, disabled, etc.).
 $button: (
   "font-size":token($map-sizes, "size-0"),           
   "font-weight":token($map-font-weights, "semi-bold"), 
 
-  "radius-border":token($map-radius, "full"),        
-  "spacing-padding": 0.7em 1.2em,                              
-  "spacing-gap": 0.5em,                                        
+  "border-radius":token($map-radius, "full"),        
+  "padding": 0.7em 1.2em,                              
+  "gap": 0.5em,                                        
 
-  "color-bg":token($map-colors-light, "primary", "200"), 
+  "bg-color":token($map-colors-light, "primary", "200"), 
   "color-text":token($map-colors-light, "neutral", "900"), 
-  "color-hover-bg":token($map-colors-light, "primary", "100"), 
-  "color-hover-text":token($map-colors-light, "neutral", "900"), 
+  "bg-color-hover":token($map-colors-light, "primary", "100"), 
+  "color-text-hover":token($map-colors-light, "neutral", "900"), 
 
   "border-width": 2px,                                           
   "border-style": solid,                                       
