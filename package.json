@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@fontsource-variable/montserrat": "^5.1.0",
-    "astro": "^5.4.1",
-    "sass": "^1.82.0"
+    "astro": "^5.14.6",
+    "sass": "^1.93.2"
   }
 }
