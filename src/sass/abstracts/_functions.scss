@@ -1,20 +1,9 @@
 @use "sass:math";
-@use "sass:color";
-@use "sass:list";
 @use "sass:map";
 
-@use "map-tokens" as Maptokens;
-
 @function px-to-rem($px, $base-font-size: 16px) {
-  $rem-base: $base-font-size;
-  // Calcula el valor en rem utilizando la relación 1px = 0.0625rem
-  @return math.div($px, $rem-base) * 1rem;
+  @return math.div($px, $base-font-size) * 1rem;
 }
-
-// Ejemplo de uso de la función
-$text-size-in-rem: px-to-rem(16px);
-
-
 
 @function token($map, $keys...) {
   $value: $map;

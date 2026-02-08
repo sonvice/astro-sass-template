@@ -1,0 +1,8 @@
+@use "../abstracts/tokens" as Tokens;
+
+// Utilidades de border-radius desde tokens
+@each $name, $value in Tokens.$radius {
+  .radius-#{$name} {
+    border-radius: var(--radius-#{$name});
+  }
+}

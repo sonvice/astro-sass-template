@@ -1,13 +1,15 @@
 ---
 interface Props {
   text?: string;
-  type?: string;
-  class?:string;
-  id?:string;
+  variant?: string;
+  size?: string;
+  href?: string;
+  class?: string;
+  id?: string;
 }
-const { text,type,class:className,id } = Astro.props;
+const { text, variant, size, href = "#", class: className, id } = Astro.props;
 ---
-<a href="#" id={id} class={`btn ${className ? className:''}`} data-type={type}>
+<a href={href} id={id} class={`btn ${className ?? ''}`} data-variant={variant} data-size={size}>
   <slot name="icon-left"/>
   {text}
   <slot name="icon-right"/>

@@ -1,0 +1,81 @@
+// ============================================================
+// COLOR TOKENS
+// Paletas de color + mapas de tema (light/dark)
+// https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors
+// ============================================================
+
+// --- Paletas ---
+
+$_neutral-light: (
+  "50": #f5f5f5,
+  "100": #e9e9e9,
+  "200": #dadada,
+  "300": #c5c5c5,
+  "400": #9f9f9f,
+  "500": #7d7d7d,
+  "600": #575757,
+  "700": #454545,
+  "800": #282828,
+  "900": #030303,
+);
+
+$_neutral-dark: (
+  "900": #f5f5f5,
+  "800": #e9e9e9,
+  "700": #dadada,
+  "600": #c5c5c5,
+  "500": #9f9f9f,
+  "400": #7d7d7d,
+  "300": #575757,
+  "200": #454545,
+  "100": #282828,
+  "50": #030303,
+);
+
+$_primary-light: (
+  "50": hsl(48, 76%, 93%),
+  "100": hsl(48, 75%, 83%),
+  "200": hsl(48, 76%, 72%),
+  "300": hsl(48, 76%, 61%),
+  "400": hsl(47, 77%, 54%),
+  "500": hsl(46, 78%, 49%),
+  "600": hsl(43, 83%, 48%),
+  "700": hsl(39, 87%, 47%),
+  "800": hsl(35, 91%, 46%),
+  "900": hsl(28, 96%, 44%),
+);
+
+$_primary-dark: (
+  "50": hsl(48, 76%, 93%),
+  "100": hsl(48, 75%, 83%),
+  "200": hsl(48, 76%, 72%),
+  "300": hsl(48, 76%, 61%),
+  "400": hsl(47, 77%, 54%),
+  "500": hsl(46, 78%, 49%),
+  "600": hsl(43, 83%, 48%),
+  "700": hsl(39, 87%, 47%),
+  "800": hsl(35, 91%, 46%),
+  "900": hsl(28, 96%, 44%),
+);
+
+$_secondary-light: (
+  "500": hsl(0, 0%, 0%),
+);
+
+$_secondary-dark: (
+  "500": hsl(0, 0%, 95%),
+);
+
+// --- Mapas de tema (se usan en :root y [data-theme="dark"]) ---
+
+$colors-light: (
+  "neutral": $_neutral-light,
+  "primary": $_primary-light,
+  "secondary": $_secondary-light,
+);
+
+$colors-dark: (
+  "neutral": $_neutral-dark,
+  "primary": $_primary-dark,
+  "secondary": $_secondary-dark,
+);

@@ -1,0 +1,58 @@
+// ============================================================
+// ALIAS TOKENS (Component tokens)
+// Se convierten a CSS custom properties via:
+//   @include generate-css-variables($map, "prefix-")
+//
+// Usan var() para referenciar tokens globales de :root,
+// lo que permite reactividad automatica al cambiar de tema.
+//
+// --- Patron de nombres ---
+// 1. [Componente]: button, card, tag, etc.
+// 2. [Propiedad]:  bg, color, radius, border, etc.
+// 3. [Estado]:     hover, active, disabled (solo si difiere del default)
+// ============================================================
+
+
+// BUTTON
+// -----------------------------------------------------------
+$button: (
+  "font-size": var(--size-0),
+  "font-weight": var(--fw-semi-bold),
+  "radius": var(--radius-full),
+  "padding": 0.7em 1.2em,
+  "gap": 0.5em,
+
+  "bg": var(--primary-200),
+  "color": var(--neutral-900),
+  "bg-hover": var(--primary-100),
+  "color-hover": var(--neutral-900),
+
+  "border-width": 2px,
+  "border-style": solid,
+  "border-color": var(--primary-200),
+);
+
+
+// CARD
+// -----------------------------------------------------------
+$card: (
+  "bg": var(--neutral-50),
+  "color": var(--neutral-900),
+  "radius": var(--radius-lg),
+
+  "border-width": 1px,
+  "border-style": solid,
+  "border-color": var(--neutral-200),
+);
+
+
+// TAG
+// -----------------------------------------------------------
+$tag: (
+  "bg": var(--neutral-200),
+  "color": var(--neutral-800),
+  "radius": var(--radius-full),
+  "padding": 0.3em 0.8em,
+  "font-size": var(--size--1),
+  "font-weight": var(--fw-semi-bold),
+);

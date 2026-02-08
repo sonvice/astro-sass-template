@@ -1,5 +1,0 @@
-.d-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--min-max, 16rem), 1fr));
-    gap: var(--gap,var(--space-s));
-  }

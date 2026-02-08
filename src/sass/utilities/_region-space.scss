@@ -1,0 +1,8 @@
+@use "../abstracts/tokens" as Tokens;
+
+// Utilidades de control para --region-space (utilidad .region)
+@each $name, $value in Tokens.$spacing {
+  .region-space-#{$name} {
+    --region-space: var(--#{$name});
+  }
+}

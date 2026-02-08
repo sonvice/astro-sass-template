@@ -1,0 +1,9 @@
+// CLUSTER: Elementos en fila con wrap automático
+// Configurable via --gutter, --cluster-horizontal-alignment, --cluster-vertical-alignment
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gutter, var(--space-s));
+  justify-content: var(--cluster-horizontal-alignment, flex-start);
+  align-items: var(--cluster-vertical-alignment, center);
+}

@@ -1,0 +1,14 @@
+// REPEL: Empuja elementos a extremos opuestos
+// Configurable via --gutter, --repel-vertical-alignment
+.repel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: var(--repel-vertical-alignment, center);
+  gap: var(--gutter, var(--space-m));
+}
+
+// Excepción: sin wrap
+.repel[data-nowrap] {
+  flex-wrap: nowrap;
+}

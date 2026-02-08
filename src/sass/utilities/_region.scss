@@ -1,0 +1,6 @@
+// REGION: Padding consistente de sección
+// Configurable via --region-space o clase .region-space-{token}
+.region {
+  padding-block: var(--region-space, var(--space-m));
+  position: relative;
+}

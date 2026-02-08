@@ -1,14 +1,73 @@
 ---
 import Button from '../components/Button.astro';
 import ButtonA from '../components/ButtonA.astro';
+import Card from '../components/Card.astro';
+import Tag from '../components/Tag.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<h1 class="text-size-5 text-neutral-900 text-bold mb-space-s">Template Astro v5 With Sass</h1>
-	<p class="fw-semi-bold mb-space-m">Plantilla para desarrolo web con design tokens</p>
-	<div class="d-flex">
-		<Button text="Button tag button" class={"px-space-s py-space-2xs rounded-sm"}></Button>
-		<ButtonA type="ghost" text="Button tag a" class={"px-space-s py-space-2xs rounded-sm"}></ButtonA>
-	</div>
+	<section class="region flow flow-space-space-xl">
+		<h1 class="text-size-5 text-neutral-900 text-bold">Template Astro v5 With Sass</h1>
+		<p>ITCSS + CUBE CSS con design tokens y clases de utilidad.</p>
+
+		<!-- Buttons -->
+		<div class="flow flow-space-space-s">
+			<h2 class="text-size-3">Buttons</h2>
+			<div class="cluster">
+				<Button text="Default" />
+				<Button variant="primary" text="Primary" />
+				<Button variant="ghost" text="Ghost" />
+			</div>
+			<div class="cluster">
+				<Button variant="primary" size="small" text="Small" />
+				<Button variant="primary" text="Medium" />
+				<Button variant="primary" size="large" text="Large" />
+			</div>
+			<div class="cluster">
+				<ButtonA variant="primary" text="Link button" href="#" />
+				<ButtonA variant="ghost" text="Link ghost" href="#" />
+			</div>
+		</div>
+
+		<!-- Tags -->
+		<div class="flow flow-space-space-s">
+			<h2 class="text-size-3">Tags</h2>
+			<div class="cluster gutter-space-xs">
+				<Tag text="Default" />
+				<Tag variant="primary" text="Primary" />
+				<Tag variant="outline" text="Outline" />
+				<Tag variant="success" text="Success" />
+				<Tag variant="warning" text="Warning" />
+				<Tag variant="danger" text="Danger" />
+			</div>
+		</div>
+
+		<!-- Cards -->
+		<div class="flow flow-space-space-s">
+			<h2 class="text-size-3">Cards</h2>
+			<div class="grid">
+				<Card>
+					<h3 class="text-size-1">Card default</h3>
+					<p>Contenido con flow composition para espaciado vertical.</p>
+					<Tag variant="primary" text="Etiqueta" />
+				</Card>
+
+				<Card variant="elevated">
+					<h3 class="text-size-1">Card elevated</h3>
+					<p>Card con sombra y sin borde visible.</p>
+					<div class="cluster gutter-space-xs">
+						<Tag variant="success" text="Activo" />
+						<Tag variant="outline" text="v2.0" />
+					</div>
+				</Card>
+
+				<Card variant="outline">
+					<h3 class="text-size-1">Card outline</h3>
+					<p>Card transparente con borde prominente.</p>
+					<ButtonA variant="ghost" size="small" text="Ver mas" href="#" />
+				</Card>
+			</div>
+		</div>
+	</section>
 </Layout>

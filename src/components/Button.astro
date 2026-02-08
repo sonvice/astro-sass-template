@@ -1,13 +1,14 @@
 ---
 interface Props {
   text?: string;
-  type?: string;
-  class?:string;
-  id?:string;
+  variant?: string;
+  size?: string;
+  class?: string;
+  id?: string;
 }
-const { text,type,class:className,id } = Astro.props;
+const { text, variant, size, class: className, id } = Astro.props;
 ---
-<button id={id} class={`btn ${className ? className:''}`} data-type={type}>
+<button id={id} class={`btn ${className ?? ''}`} data-variant={variant} data-size={size}>
   <slot name="icon-left"/>
   {text}
   <slot name="icon-right"/>

@@ -1,0 +1,5 @@
+// FLOW: Espaciado vertical entre elementos hermanos
+// Configurable via --flow-space o clase .flow-space-{token}
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1em);
+}

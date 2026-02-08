@@ -1,0 +1,8 @@
+@use "../abstracts/tokens" as Tokens;
+
+// Utilidades de control para --gutter (compositions cluster, grid, sidebar, switcher, repel, wrapper)
+@each $name, $value in Tokens.$spacing {
+  .gutter-#{$name} {
+    --gutter: var(--#{$name});
+  }
+}

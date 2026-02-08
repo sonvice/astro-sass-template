@@ -1,19 +1,19 @@
-@use "../abstracts/map-tokens" as MapTokens;
-@use "../abstracts/mixins" as Mixins; 
+@use "../abstracts/tokens" as Tokens;
+@use "../abstracts/mixins" as Mixins;
 
-$enable-dark-theme: true; // Cambia esto a false si no quieres activar el modo oscuro
+$enable-dark-theme: true;
 
 :root {
-  @include Mixins.generate-css-variables(MapTokens.$map-colors-light, "");
-  @include Mixins.generate-css-variables(MapTokens.$map-spacing, "");
-  @include Mixins.generate-css-variables(MapTokens.$map-sizes, "");
-  @include Mixins.generate-css-variables(MapTokens.$map-fonts, "");
-  @include Mixins.generate-css-variables(MapTokens.$map-font-weights, "");
+  @include Mixins.generate-css-variables(Tokens.$colors-light, "");
+  @include Mixins.generate-css-variables(Tokens.$spacing, "");
+  @include Mixins.generate-css-variables(Tokens.$font-sizes, "");
+  @include Mixins.generate-css-variables(Tokens.$fonts, "");
+  @include Mixins.generate-css-variables(Tokens.$font-weights, "fw-");
+  @include Mixins.generate-css-variables(Tokens.$radius, "radius-");
 }
 
-// Solo generar las variables para el modo oscuro si está habilitado
-[data-theme="dark"] {
-  @if $enable-dark-theme {
-    @include Mixins.generate-css-variables(MapTokens.$map-colors-dark, "");
+@if $enable-dark-theme {
+  [data-theme="dark"] {
+    @include Mixins.generate-css-variables(Tokens.$colors-dark, "");
   }
 }

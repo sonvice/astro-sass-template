@@ -1,0 +1,15 @@
+---
+interface Props {
+  text?: string;
+  variant?: string;
+  href?: string;
+  class?: string;
+}
+const { text, variant, href, class: className } = Astro.props;
+const Tag = href ? 'a' : 'span';
+---
+<Tag href={href} class={`tag ${className ?? ''}`} data-variant={variant}>
+  <slot name="icon"/>
+  {text}
+  <slot/>
+</Tag>

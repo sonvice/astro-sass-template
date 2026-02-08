@@ -1,0 +1,8 @@
+@use "../abstracts/tokens" as Tokens;
+
+// Utilidades de control para --flow-space (composition .flow)
+@each $name, $value in Tokens.$spacing {
+  .flow-space-#{$name} {
+    --flow-space: var(--#{$name});
+  }
+}

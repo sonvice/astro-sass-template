@@ -1,0 +1,83 @@
+// https://piccalil.li/blog/how-i-build-a-button-component/
+@use "../abstracts" as *;
+
+.btn {
+  @include generate-css-variables($button, "button-");
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--button-gap, 0.5em);
+  padding: var(--button-padding, 0.7em 1.2em);
+
+  background: var(--button-bg);
+  color: var(--button-color);
+
+  border-width: var(--button-border-width);
+  border-style: var(--button-border-style);
+  border-color: var(--button-border-color);
+  border-radius: var(--button-radius);
+
+  text-decoration: none;
+  font-family: inherit;
+  font-weight: var(--button-font-weight, 700);
+  font-size: var(--button-font-size, 1em);
+  letter-spacing: 0.05ch;
+  line-height: 1.1;
+  cursor: pointer;
+
+  & svg {
+    height: var(--button-icon-size, 1.2cap);
+    width: auto;
+    flex: none;
+  }
+
+  &:hover {
+    background: var(--button-bg-hover);
+    color: var(--button-color-hover);
+    border-color: var(--button-border-color-hover, var(--button-bg-hover));
+  }
+
+  &:focus-visible {
+    outline-width: var(--button-outline-width, var(--button-border-width));
+    outline-style: var(--button-outline-style, var(--button-border-style));
+    outline-color: var(--button-outline-color, var(--button-border-color));
+    outline-offset: var(
+      --button-outline-offset,
+      calc(var(--button-border-width) * 2)
+    );
+  }
+
+  &:active {
+    transform: scale(99%);
+  }
+
+  // --- Excepciones via data-attributes (CUBE CSS) ---
+
+  &[data-variant="primary"] {
+    --button-bg: var(--neutral-900);
+    --button-color: var(--neutral-50);
+    --button-border-color: var(--neutral-900);
+    --button-bg-hover: var(--neutral-700);
+    --button-color-hover: var(--neutral-50);
+    --button-border-color-hover: var(--button-bg-hover);
+    --button-outline-color: var(--button-bg-hover);
+  }
+
+  &[data-variant="ghost"] {
+    --button-bg: transparent;
+    --button-color: var(--neutral-900);
+    --button-border-color: currentColor;
+    --button-bg-hover: var(--neutral-900);
+    --button-color-hover: var(--neutral-50);
+  }
+
+  &[data-size="small"] {
+    --button-padding: 0.4em 0.8em;
+    --button-font-size: var(--size--1);
+  }
+
+  &[data-size="large"] {
+    --button-padding: 1em 1.8em;
+    --button-font-size: var(--size-1);
+  }
+}

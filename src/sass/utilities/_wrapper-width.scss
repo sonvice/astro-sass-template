@@ -1,0 +1,8 @@
+// Utilidades de control para --wrapper-max-width (composition .wrapper)
+.wrapper-narrow {
+  --wrapper-max-width: 55rem;
+}
+
+.wrapper-wide {
+  --wrapper-max-width: 100rem;
+}

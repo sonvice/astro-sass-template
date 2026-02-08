@@ -1,0 +1,13 @@
+---
+interface Props {
+  variant?: string;
+  class?: string;
+}
+const { variant, class: className } = Astro.props;
+---
+<article class={`card ${className ?? ''}`} data-variant={variant}>
+  <slot name="image"/>
+  <div class="card__content flow">
+    <slot/>
+  </div>
+</article>

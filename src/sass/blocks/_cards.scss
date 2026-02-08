@@ -1,0 +1,44 @@
+// CARD: Componente de tarjeta configurable via custom properties
+// Usa compositions internas (.flow) para el espaciado del contenido
+@use "../abstracts" as *;
+
+.card {
+  @include generate-css-variables($card, "card-");
+
+  background: var(--card-bg);
+  color: var(--card-color);
+  border-radius: var(--card-radius);
+  border-width: var(--card-border-width);
+  border-style: var(--card-border-style);
+  border-color: var(--card-border-color);
+  overflow: hidden;
+
+  // Contenido interno con padding (cuando no tiene imagen)
+  &__content {
+    padding: var(--card-content-padding, var(--space-m));
+  }
+
+  // Imagen de la card (ocupa todo el ancho)
+  & img {
+    width: 100%;
+    height: var(--card-img-height, 12rem);
+    object-fit: cover;
+  }
+
+  // --- Excepciones via data-attributes ---
+
+  &[data-variant="outline"] {
+    --card-bg: transparent;
+    --card-border-width: 2px;
+    --card-border-color: var(--neutral-400);
+  }
+
+  &[data-variant="elevated"] {
+    --card-border-width: 0px;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  }
+
+  &[data-padding="flush"] {
+    --card-content-padding: 0;
+  }
+}

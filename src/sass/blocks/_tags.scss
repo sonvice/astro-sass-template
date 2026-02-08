@@ -1,0 +1,57 @@
+// TAG: Etiqueta inline para categorías, estados, badges
+// Configurable via custom properties
+@use "../abstracts" as *;
+
+.tag {
+  @include generate-css-variables($tag, "tag-");
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: var(--tag-padding, 0.3em 0.8em);
+
+  background: var(--tag-bg);
+  color: var(--tag-color);
+  border-radius: var(--tag-radius);
+
+  font-size: var(--tag-font-size, 0.85em);
+  font-weight: var(--tag-font-weight, 500);
+  line-height: 1.1;
+  text-decoration: none;
+  white-space: nowrap;
+
+  & svg {
+    height: 1em;
+    width: auto;
+    flex: none;
+  }
+
+  // --- Excepciones via data-attributes ---
+
+  &[data-variant="primary"] {
+    --tag-bg: var(--primary-200);
+    --tag-color: var(--neutral-900);
+  }
+
+  &[data-variant="outline"] {
+    --tag-bg: transparent;
+    --tag-color: var(--neutral-800);
+    outline: 1px solid var(--neutral-400);
+    outline-offset: -1px;
+  }
+
+  &[data-variant="success"] {
+    --tag-bg: hsl(152, 60%, 90%);
+    --tag-color: hsl(152, 60%, 25%);
+  }
+
+  &[data-variant="warning"] {
+    --tag-bg: hsl(40, 90%, 90%);
+    --tag-color: hsl(40, 90%, 25%);
+  }
+
+  &[data-variant="danger"] {
+    --tag-bg: hsl(0, 70%, 92%);
+    --tag-color: hsl(0, 70%, 30%);
+  }
+}

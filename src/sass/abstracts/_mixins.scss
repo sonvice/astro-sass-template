@@ -1,64 +1,58 @@
 @use "sass:map";
 @use "sass:meta";
-@use "sass:string";
 
-$breakpointsMin: (
-  sm: 40em,
-  //640px
-  md: 48em,
-  //768px
-  lg: 64em,
-  //1024px
-  xl: 90em,
-  //1440px
+// ============================================================
+// BREAKPOINTS
+// ============================================================
+
+$breakpoints-min: (
+  sm: 40em,    // 640px
+  md: 48em,    // 768px
+  lg: 64em,    // 1024px
+  xl: 90em,    // 1440px
 );
 
-$breakpointsMax: (
-  sm: 39.99875em,
-  //639.98px
-  md: 47.99875em,
-  //767.98px
-  lg: 63.99875em,
-  //1023.98px
-  xl: 89.99875em,
-  //1439.98px
+$breakpoints-max: (
+  sm: 39.99875em,  // 639.98px
+  md: 47.99875em,  // 767.98px
+  lg: 63.99875em,  // 1023.98px
+  xl: 89.99875em,  // 1439.98px
 );
 
-// Mixin para generar media queries y recibe como argumento sm, md etc.
 @mixin breakpoint($breakpoint) {
-  $breakpoint-value: map.get($breakpointsMin, $breakpoint);
-  @if $breakpoint-value != null {
-    @media (min-width: $breakpoint-value) {
+  $value: map.get($breakpoints-min, $breakpoint);
+  @if $value != null {
+    @media (min-width: $value) {
       @content;
     }
-  } @else{
-    @error "The breakpoint #{$breakpoint} is not defined in $breakpointsMin.";
+  } @else {
+    @error "Breakpoint '#{$breakpoint}' no definido en $breakpoints-min.";
   }
 }
 
 @mixin breakpoint-down($breakpoint) {
-  $breakpoint-value: map.get($breakpointsMax, $breakpoint);
-  @if $breakpoint-value != null {
-    @media (max-width: $breakpoint-value) {
+  $value: map.get($breakpoints-max, $breakpoint);
+  @if $value != null {
+    @media (max-width: $value) {
       @content;
     }
-  }@else {
-    @error "The breakpoint #{$breakpoint} is not defined in $breakpointsMax.";
+  } @else {
+    @error "Breakpoint '#{$breakpoint}' no definido en $breakpoints-max.";
   }
 }
 
-  // Mixins para Agregar Nuevos Tokens
-  @mixin generate-css-variables($map, $prefix: "") {
-    @each $key, $value in $map {
-      @if meta.type-of($value) == "map" {
-        // Llamada recursiva si el valor es un mapa anidado
-        @include generate-css-variables($value, $prefix + $key + "-");
-      } @else {
-        // Genera la variable si es un valor plano
-        --#{$prefix}#{$key}: #{$value};
-      }
+// ============================================================
+// GENERATE CSS VARIABLES
+// Convierte un mapa SCSS en CSS custom properties
+// Soporta mapas anidados recursivamente
+// ============================================================
+
+@mixin generate-css-variables($map, $prefix: "") {
+  @each $key, $value in $map {
+    @if meta.type-of($value) == "map" {
+      @include generate-css-variables($value, $prefix + $key + "-");
+    } @else {
+      --#{$prefix}#{$key}: #{$value};
     }
   }
-  
-    
-
+}

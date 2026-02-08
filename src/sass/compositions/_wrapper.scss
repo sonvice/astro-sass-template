@@ -1,0 +1,8 @@
+// WRAPPER: Contenedor centrado con max-width
+// Configurable via --wrapper-max-width, --gutter
+.wrapper {
+  margin-inline: auto;
+  max-width: var(--wrapper-max-width, 85rem);
+  padding-inline: var(--gutter, var(--space-m));
+  position: relative;
+}

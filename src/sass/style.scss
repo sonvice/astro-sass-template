@@ -1,5 +1,6 @@
-@use "base";
-@use "utilities";
-@use "components";
-@use "sections";
-@use "vendors";
+@use "base";          // 1. Generic + Elements (reset, root, fonts, global)
+@use "compositions";  // 2. Objects (layout primitives: flow, cluster, sidebar, switcher, grid, repel, wrapper)
+@use "blocks";        // 3. Blocks (UI components)
+@use "utilities";     // 4. Trumps (utilidades de mayor especificidad)
+@use "sections";      // 5. Page-specific
+@use "vendors";       // 6. Third-party
