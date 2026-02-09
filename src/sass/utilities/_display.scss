@@ -1,0 +1,16 @@
+// ============================================================
+// DISPLAY UTILITIES (responsive)
+// Controla la propiedad display con variantes por breakpoint
+// Uso: class="hidden md:flex" | class="block lg:grid"
+// ============================================================
+@use "../abstracts/mixins" as Mixins;
+
+@include Mixins.responsive-utilities("", (
+  "hidden":       (display: none),
+  "block":        (display: block),
+  "flex":         (display: flex),
+  "grid":         (display: grid),
+  "inline":       (display: inline),
+  "inline-flex":  (display: inline-flex),
+  "inline-block": (display: inline-block),
+));

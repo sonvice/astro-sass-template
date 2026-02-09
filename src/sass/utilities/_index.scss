@@ -1,6 +1,5 @@
 @forward 'spacing';
 @forward 'colors';
-@forward 'text-center';
 @forward 'text-sizes';
 @forward 'uppercase';
 @forward 'visually-hidden';
@@ -8,7 +7,14 @@
 @forward 'leading';
 @forward 'radius';
 @forward 'region';
+@forward 'wrapper-width';
+
+// Responsive utilities (con variantes sm:, md:, lg:, xl:)
+@forward 'display';
+@forward 'flex';
+@forward 'order';
+@forward 'grid-cols';
+@forward 'text-align';
 @forward 'flow-space';
 @forward 'gutter';
 @forward 'region-space';
-@forward 'wrapper-width';

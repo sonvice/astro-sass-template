@@ -1,0 +1,40 @@
+// ============================================================
+// FLEX UTILITIES (responsive)
+// Direccion, wrap, alineacion para layouts flexbox
+// Complementa compositions (cluster, repel, switcher) para
+// casos donde se necesita control explicito por breakpoint
+// Uso: class="flex flex-col md:flex-row"
+// ============================================================
+@use "../abstracts/mixins" as Mixins;
+
+// --- Direction ---
+@include Mixins.responsive-utilities("", (
+  "flex-row":         (flex-direction: row),
+  "flex-col":         (flex-direction: column),
+  "flex-row-reverse": (flex-direction: row-reverse),
+  "flex-col-reverse": (flex-direction: column-reverse),
+));
+
+// --- Wrap ---
+@include Mixins.responsive-utilities("", (
+  "flex-wrap":   (flex-wrap: wrap),
+  "flex-nowrap": (flex-wrap: nowrap),
+));
+
+// --- Justify Content ---
+@include Mixins.responsive-utilities("", (
+  "justify-start":   (justify-content: flex-start),
+  "justify-center":  (justify-content: center),
+  "justify-end":     (justify-content: flex-end),
+  "justify-between": (justify-content: space-between),
+  "justify-around":  (justify-content: space-around),
+));
+
+// --- Align Items ---
+@include Mixins.responsive-utilities("", (
+  "items-start":    (align-items: flex-start),
+  "items-center":   (align-items: center),
+  "items-end":      (align-items: flex-end),
+  "items-stretch":  (align-items: stretch),
+  "items-baseline": (align-items: baseline),
+));

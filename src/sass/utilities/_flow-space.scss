@@ -1,8 +1,6 @@
-@use "../abstracts/tokens" as Tokens;
-
 // Utilidades de control para --flow-space (composition .flow)
-@each $name, $value in Tokens.$spacing {
-  .flow-space-#{$name} {
-    --flow-space: var(--#{$name});
-  }
-}
+// Con variantes responsivas: class="flow-space-space-s lg:flow-space-space-l"
+@use "../abstracts/tokens" as Tokens;
+@use "../abstracts/mixins" as Mixins;
+
+@include Mixins.responsive-custom-property-utilities("flow-space-", "--flow-space", Tokens.$spacing);

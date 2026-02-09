@@ -1,0 +1,18 @@
+// ============================================================
+// BREAKPOINT TOKENS
+// Puntos de quiebre para variantes responsivas (mobile-first)
+// ============================================================
+
+$breakpoints-min: (
+  sm: 40em,    // 640px
+  md: 48em,    // 768px
+  lg: 64em,    // 1024px
+  xl: 90em,    // 1440px
+) !default;
+
+$breakpoints-max: (
+  sm: 39.99875em,  // 639.98px
+  md: 47.99875em,  // 767.98px
+  lg: 63.99875em,  // 1023.98px
+  xl: 89.99875em,  // 1439.98px
+) !default;

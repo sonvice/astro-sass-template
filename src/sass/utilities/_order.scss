@@ -1,0 +1,12 @@
+// ============================================================
+// ORDER UTILITIES (responsive)
+// Reordena elementos flex/grid por breakpoint
+// Uso: class="order-first md:order-last"
+// ============================================================
+@use "../abstracts/mixins" as Mixins;
+
+@include Mixins.responsive-utilities("", (
+  "order-first": (order: -9999),
+  "order-last":  (order: 9999),
+  "order-none":  (order: 0),
+));

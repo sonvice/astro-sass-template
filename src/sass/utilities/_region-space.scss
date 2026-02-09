@@ -1,8 +1,6 @@
-@use "../abstracts/tokens" as Tokens;
-
 // Utilidades de control para --region-space (utilidad .region)
-@each $name, $value in Tokens.$spacing {
-  .region-space-#{$name} {
-    --region-space: var(--#{$name});
-  }
-}
+// Con variantes responsivas: class="region-space-space-m lg:region-space-space-xl"
+@use "../abstracts/tokens" as Tokens;
+@use "../abstracts/mixins" as Mixins;
+
+@include Mixins.responsive-custom-property-utilities("region-space-", "--region-space", Tokens.$spacing);

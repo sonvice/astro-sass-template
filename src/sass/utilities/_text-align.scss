@@ -1,0 +1,12 @@
+// ============================================================
+// TEXT ALIGN UTILITIES (responsive)
+// Alineacion de texto por breakpoint
+// Uso: class="text-center md:text-left"
+// ============================================================
+@use "../abstracts/mixins" as Mixins;
+
+@include Mixins.responsive-utilities("text-", (
+  "left":   (text-align: left),
+  "center": (text-align: center),
+  "right":  (text-align: right),
+));

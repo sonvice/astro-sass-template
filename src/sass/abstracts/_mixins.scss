@@ -1,26 +1,13 @@
 @use "sass:map";
 @use "sass:meta";
+@use "tokens" as Tokens;
 
 // ============================================================
 // BREAKPOINTS
 // ============================================================
 
-$breakpoints-min: (
-  sm: 40em,    // 640px
-  md: 48em,    // 768px
-  lg: 64em,    // 1024px
-  xl: 90em,    // 1440px
-);
-
-$breakpoints-max: (
-  sm: 39.99875em,  // 639.98px
-  md: 47.99875em,  // 767.98px
-  lg: 63.99875em,  // 1023.98px
-  xl: 89.99875em,  // 1439.98px
-);
-
 @mixin breakpoint($breakpoint) {
-  $value: map.get($breakpoints-min, $breakpoint);
+  $value: map.get(Tokens.$breakpoints-min, $breakpoint);
   @if $value != null {
     @media (min-width: $value) {
       @content;
@@ -31,7 +18,7 @@ $breakpoints-max: (
 }
 
 @mixin breakpoint-down($breakpoint) {
-  $value: map.get($breakpoints-max, $breakpoint);
+  $value: map.get(Tokens.$breakpoints-max, $breakpoint);
   @if $value != null {
     @media (max-width: $value) {
       @content;
@@ -53,6 +40,81 @@ $breakpoints-max: (
       @include generate-css-variables($value, $prefix + $key + "-");
     } @else {
       --#{$prefix}#{$key}: #{$value};
+    }
+  }
+}
+
+// ============================================================
+// RESPONSIVE UTILITIES GENERATORS
+// Generan clases base + variantes prefijadas por breakpoint
+// Patron: .{bp}\:{class} — e.g., .md\:flex, .lg\:hidden
+// Mobile-first (min-width)
+// ============================================================
+
+/// Genera una clase unica con variantes responsivas.
+/// @param {String} $class-name - Nombre sin punto
+@mixin responsive-class($class-name) {
+  .#{$class-name} {
+    @content;
+  }
+
+  @each $bp-name, $bp-value in Tokens.$breakpoints-min {
+    @media (min-width: $bp-value) {
+      .#{$bp-name}\:#{$class-name} {
+        @content;
+      }
+    }
+  }
+}
+
+/// Genera multiples clases responsivas desde un mapa.
+/// Agrupa todas las clases bajo un solo @media por breakpoint.
+/// @param {String} $prefix - Prefijo de clase (e.g., "text-", "" para directo)
+/// @param {Map} $utilities-map - (nombre: (property: value, ...))
+@mixin responsive-utilities($prefix, $utilities-map) {
+  @each $name, $declarations in $utilities-map {
+    $class-name: if($prefix == "", $name, "#{$prefix}#{$name}");
+
+    .#{$class-name} {
+      @each $prop, $val in $declarations {
+        #{$prop}: #{$val};
+      }
+    }
+  }
+
+  @each $bp-name, $bp-value in Tokens.$breakpoints-min {
+    @media (min-width: $bp-value) {
+      @each $name, $declarations in $utilities-map {
+        $class-name: if($prefix == "", $name, "#{$prefix}#{$name}");
+
+        .#{$bp-name}\:#{$class-name} {
+          @each $prop, $val in $declarations {
+            #{$prop}: #{$val};
+          }
+        }
+      }
+    }
+  }
+}
+
+/// Genera clases responsivas que setean custom properties (patron CUBE CSS).
+/// @param {String} $class-prefix - Prefijo de clase (e.g., "gutter-")
+/// @param {String} $custom-property - Custom property (e.g., "--gutter")
+/// @param {Map} $values-map - Mapa de token names (e.g., Tokens.$spacing)
+@mixin responsive-custom-property-utilities($class-prefix, $custom-property, $values-map) {
+  @each $name, $value in $values-map {
+    .#{$class-prefix}#{$name} {
+      #{$custom-property}: var(--#{$name});
+    }
+  }
+
+  @each $bp-name, $bp-value in Tokens.$breakpoints-min {
+    @media (min-width: $bp-value) {
+      @each $name, $value in $values-map {
+        .#{$bp-name}\:#{$class-prefix}#{$name} {
+          #{$custom-property}: var(--#{$name});
+        }
+      }
     }
   }
 }

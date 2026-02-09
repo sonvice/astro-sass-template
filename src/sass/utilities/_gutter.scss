@@ -1,8 +1,6 @@
-@use "../abstracts/tokens" as Tokens;
-
 // Utilidades de control para --gutter (compositions cluster, grid, sidebar, switcher, repel, wrapper)
-@each $name, $value in Tokens.$spacing {
-  .gutter-#{$name} {
-    --gutter: var(--#{$name});
-  }
-}
+// Con variantes responsivas: class="gutter-space-s lg:gutter-space-l"
+@use "../abstracts/tokens" as Tokens;
+@use "../abstracts/mixins" as Mixins;
+
+@include Mixins.responsive-custom-property-utilities("gutter-", "--gutter", Tokens.$spacing);
