@@ -9,7 +9,8 @@
   gap: var(--button-gap, 0.5em);
   padding: var(--button-padding, 0.7em 1.2em);
 
-  background: var(--button-bg);
+  --_bg: var(--button-bg);
+  background: var(--_bg);
   color: var(--button-color);
 
   border-width: var(--button-border-width);
@@ -32,7 +33,8 @@
   }
 
   &:hover {
-    background: var(--button-bg-hover);
+    --_bg: var(--button-bg-hover);
+    background: var(--_bg);
     color: var(--button-color-hover);
     border-color: var(--button-border-color-hover, var(--button-bg-hover));
   }
@@ -49,6 +51,21 @@
 
   &:active {
     transform: scale(99%);
+  }
+
+  // --- Auto-contrast intrinseco (progressive enhancement) ---
+  // Nivel 2: relative color syntax — sobreescribe --button-color con contraste auto
+  // Nivel 3: contrast-color() nativa
+  // Los variants con color explicito ganan por mayor especificidad.
+
+  @supports #{"(color: rgb(from red r g b))"} {
+    --button-color: #{"rgb(from var(--_bg) var(--_contrast-channel) var(--_contrast-channel) var(--_contrast-channel))"};
+    --button-color-hover: #{"rgb(from var(--button-bg-hover) var(--_contrast-channel) var(--_contrast-channel) var(--_contrast-channel))"};
+  }
+
+  @supports #{"(color: contrast-color(red))"} {
+    --button-color: #{"contrast-color(var(--_bg))"};
+    --button-color-hover: #{"contrast-color(var(--button-bg-hover))"};
   }
 
   // --- Excepciones via data-attributes (CUBE CSS) ---

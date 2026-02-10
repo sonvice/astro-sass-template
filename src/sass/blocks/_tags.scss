@@ -10,7 +10,8 @@
   gap: 0.3em;
   padding: var(--tag-padding, 0.3em 0.8em);
 
-  background: var(--tag-bg);
+  --_bg:var(--tag-bg);
+  background: var(--_bg);
   color: var(--tag-color);
   border-radius: var(--tag-radius);
 
@@ -26,11 +27,18 @@
     flex: none;
   }
 
+    @supports #{"(color: rgb(from red r g b))"} {
+    --tag-color: #{"rgb(from var(--_bg) var(--_contrast-channel) var(--_contrast-channel) var(--_contrast-channel))"};
+  }
+
+  @supports #{"(color: contrast-color(red))"} {
+    --tag-color: #{"contrast-color(var(--_bg))"};
+  }
+
   // --- Excepciones via data-attributes ---
 
   &[data-variant="primary"] {
     --tag-bg: var(--primary-200);
-    --tag-color: var(--neutral-900);
   }
 
   &[data-variant="outline"] {

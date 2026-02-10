@@ -9,6 +9,9 @@
 @forward 'region';
 @forward 'wrapper-width';
 
+// Contrast color (progressive enhancement)
+@forward 'contrast';
+
 // Responsive utilities (con variantes sm:, md:, lg:, xl:)
 @forward 'display';
 @forward 'flex';

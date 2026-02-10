@@ -1,0 +1,26 @@
+// ============================================================
+// CONTRAST COLOR UTILITY
+//
+// Calcula automaticamente blanco o negro segun el fondo.
+// Uso: class="bg-primary-200 text-contrast"
+//
+// Progresivo:
+//   1. Sin soporte → color manual existente (no se rompe nada)
+//   2. Relative color syntax → rgb(from ...) + @property
+//   3. contrast-color() → funcion nativa CSS
+// ============================================================
+
+// --- Nivel 2: Relative color syntax ---
+// Usa la @property --_contrast-channel registrada en base/_contrast.scss
+// Lee --_bg seteada por las utilidades .bg-*
+.text-contrast {
+  color: #{"rgb(from var(--_bg) var(--_contrast-channel) var(--_contrast-channel) var(--_contrast-channel))"};
+}
+
+// --- Nivel 3: contrast-color() nativa ---
+// Sobreescribe cuando el navegador soporta contrast-color()
+@supports #{"(color: contrast-color(red))"} {
+  .text-contrast {
+    color: #{"contrast-color(var(--_bg))"};
+  }
+}

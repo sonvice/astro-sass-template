@@ -3,7 +3,8 @@
 @each $seed-primary, $shade-map in Tokens.$colors-light {
   @each $shade, $value in $shade-map {
     .bg-#{$seed-primary}-#{$shade} {
-      background-color: var(--#{$seed-primary}-#{$shade});
+      --_bg: var(--#{$seed-primary}-#{$shade});
+      background-color: var(--_bg);
     }
 
     .text-#{$seed-primary}-#{$shade} {

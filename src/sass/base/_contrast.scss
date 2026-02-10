@@ -1,0 +1,18 @@
+// ============================================================
+// CONTRAST COLOR — @property registration
+//
+// Registra una custom property que calcula el canal de contraste
+// usando la formula de luminancia percibida (BT.601).
+// Solo funciona dentro de relative color syntax: rgb(from ...)
+//
+// Cadena progresiva:
+//   1. Sin soporte       → los colores manuales existentes funcionan
+//   2. Relative color    → rgb(from ...) calcula contraste (blanco/negro)
+//   3. contrast-color()  → funcion nativa CSS (via @supports)
+// ============================================================
+
+@property --_contrast-channel {
+  syntax: "*";
+  inherits: false;
+  initial-value: #{"calc((((r * 0.299) + (g * 0.587) + (b * 0.114)) - 128) * -1000)"};
+}
